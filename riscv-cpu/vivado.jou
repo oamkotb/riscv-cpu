@@ -1,0 +1,34 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Mon Dec 29 23:13:44 2025
+# Process ID         : 10204
+# Current directory  : C:/NVDA_Project/riscv-cpu/riscv-cpu
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent3580 C:\NVDA_Project\riscv-cpu\riscv-cpu\riscv-cpu.xpr
+# Log file           : C:/NVDA_Project/riscv-cpu/riscv-cpu/vivado.log
+# Journal file       : C:/NVDA_Project/riscv-cpu/riscv-cpu\vivado.jou
+# Running On         : Yousef-Laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 9 6900HX with Radeon Graphics        
+# CPU Frequency      : 3294 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 67927 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72222 MB
+# Available Virtual  : 35057 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/NVDA_Project/riscv-cpu/riscv-cpu/riscv-cpu.xpr
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/alu.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/extend.v
+update_compile_order -fileset sources_1
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/register_file.v
+update_compile_order -fileset sources_1
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/output_buffer.v
+update_compile_order -fileset sources_1
