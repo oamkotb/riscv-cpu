@@ -1,0 +1,7 @@
+0.7
+2020.2
+May 21 2025
+22:59:56
+/home/omar/Documents/projects/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v,1741209010,verilog,,,,glbl,,,,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/mux.v,1767078300,verilog,,/home/omar/Documents/projects/riscv-cpu/tb/mux_tb.v,,mux,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/tb/mux_tb.v,1767077952,verilog,,,,mux_tb,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,

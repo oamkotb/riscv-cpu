@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/tb/mux_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_tb
