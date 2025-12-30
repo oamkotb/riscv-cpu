@@ -1106,3 +1106,73 @@ selectCodeEditor("register_file.v", 662, 357); // ae (register_file.v)
 // Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:52m:38s
 // TclEventType: DG_GRAPH_GENERATED
 // Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:52m:40s
+// Elapsed time: 286 seconds
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // C (PAResourceCommand.PACommandNames_ADD_SOURCES, Sources_add_sources)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next", "Add Sources"); // JButton (NEXT)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, "Add", "Add Sources"); // C (PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, Add)
+selectMenuItem(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files..."); // ap (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, Add Files...)
+setFileChooser("C:/NVDA_Project/riscv-cpu/src/output_buffer.v");
+selectButton("FINISH", "Finish", "Add Sources"); // JButton (FINISH)
+// 'f' command handler elapsed time: 8 seconds
+dismissDialog("Add Sources"); // c (dialog7)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse C:/NVDA_Project/riscv-cpu/src/output_buffer.v 
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:57m:20s
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:57m:22s
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, output_buffer.v]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:57m:24s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, output_buffer.v]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, output_buffer.v]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, output_buffer.v]", 2, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectCodeEditor("output_buffer.v", 326, 166); // ae (output_buffer.v)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 02h:57m:26s
+// Elapsed time: 53 seconds
+typeControlKey((HResource) null, "output_buffer.v", 'c'); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+// Elapsed time: 15 seconds
+typeControlKey((HResource) null, "output_buffer.v", 'c'); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "output_buffer.v", 'c'); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+typeControlKey(null, null, 'z');
+// Elapsed time: 11 seconds
+selectCodeEditor("output_buffer.v", 255, 128); // ae (output_buffer.v)
+// Elapsed time: 15 seconds
+selectCodeEditor("output_buffer.v", 227, 73); // ae (output_buffer.v)
+selectCodeEditor("output_buffer.v", 227, 73, false, false, false, false, true); // ae (output_buffer.v) - Double Click
+typeControlKey((HResource) null, "output_buffer.v", 'c'); // ae (output_buffer.v)
+selectCodeEditor("output_buffer.v", 130, 145); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'v'); // ae (output_buffer.v)
+// Elapsed time: 62 seconds
+selectCodeEditor("output_buffer.v", 429, 137); // ae (output_buffer.v)
+// Elapsed time: 41 seconds
+selectCodeEditor("output_buffer.v", 107, 224); // ae (output_buffer.v)
+typeControlKey((HResource) null, "output_buffer.v", 'c'); // ae (output_buffer.v)
+// Elapsed time: 29 seconds
+selectCodeEditor("output_buffer.v", 407, 139); // ae (output_buffer.v)
+selectCodeEditor("output_buffer.v", 405, 139); // ae (output_buffer.v)
+// Elapsed time: 30 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "register_file.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "output_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "register_file.v", 2); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "output_buffer.v", 3); // o (PlanAheadTabBaseWorkspace_JideTabbedPane)
+selectCodeEditor("output_buffer.v", 119, 87); // ae (output_buffer.v)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:02m:20s
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("output_buffer.v", 176, 221); // ae (output_buffer.v)
+// Elapsed Time for: 'PAResourceItoN.MsgLongTask_MESSAGE_LONG_TASK/L.f': 03h:02m:22s

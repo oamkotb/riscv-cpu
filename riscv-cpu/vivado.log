@@ -204,3 +204,15 @@ WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-f
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\register_file.v:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
 WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/output_buffer.v
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\extend.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\register_file.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\alu.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\extend.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\register_file.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\register_file.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\NVDA_Project\riscv-cpu\src\register_file.v:]
+update_compile_order -fileset sources_1

@@ -30,3 +30,5 @@ add_files -norecurse C:/NVDA_Project/riscv-cpu/src/extend.v
 update_compile_order -fileset sources_1
 add_files -norecurse C:/NVDA_Project/riscv-cpu/src/register_file.v
 update_compile_order -fileset sources_1
+add_files -norecurse C:/NVDA_Project/riscv-cpu/src/output_buffer.v
+update_compile_order -fileset sources_1
