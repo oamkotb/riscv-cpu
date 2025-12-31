@@ -1,6 +1,0 @@
-# .rules.verible_lint
-# Turn off preference for SystemVerilog keywords usually unavailable in 2001
--always-comb
--always-ff
--forbidden-macro
--line-length
