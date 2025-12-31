@@ -1,5 +1,5 @@
 module mux_4to1 #(
-    parameter WORD_SIZE = 32,
+    parameter WORD_SIZE = 32
 )(
     input  wire [1:0]           sel,
     input  wire [WORD_SIZE-1:0] a,

@@ -1,8 +1,10 @@
-module alu (
-    input wire [31:0] arg_a,
-    input wire [31:0] arg_b,
+module alu #(
+    parameter  WORD_SIZE = 32
+    )(
+    input wire [WORD_SIZE - 1:0] arg_a,
+    input wire [WORD_SIZE - 1:0] arg_b,
     input wire [3:0] alu_sel,
-    output reg [31:0] alu_out
+    output reg [WORD_SIZE - 1:0] alu_out
     );
     
     localparam ADD  = 4'h1;
@@ -26,9 +28,9 @@ module alu (
               SLL: alu_out = arg_a << arg_b[4:0];
               SRL: alu_out = arg_a >> arg_b[4:0];
               SRA: alu_out = $signed(arg_a) >>> arg_b[4:0];
-              SLT: alu_out = ($signed(arg_a) < $signed(arg_b)) ? 32'd1 : 32'd0;
-              SLTU: alu_out = (arg_a < arg_b) ? 32'd1 : 32'd0; 
-              default: alu_out = 32'd0;
+              SLT: alu_out = ($signed(arg_a) < $signed(arg_b)) ? 1 : 0;
+              SLTU: alu_out = (arg_a < arg_b) ? 1 : 0; 
+              default: alu_out = 0;
         endcase
     end
 

@@ -1,5 +1,5 @@
 module mux_2to1 #(
-    parameter WORD_SIZE = 32,
+    parameter WORD_SIZE = 32
 )(
     input  wire                 sel,
     input  wire [WORD_SIZE-1:0] a,
