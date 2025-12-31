@@ -1,8 +1,0 @@
-Time resolution is 1 ps
---- Starting Mux Test ---
-Time: 0 ns | Sel: 0 | Expected: 00000001 | Actual Out: 00000001
-Time: 20000 ns | Sel: 1 | Expected: 00000002 | Actual Out: 00000002
-Time: 30000 ns | Sel: 2 | Expected: 00000003 | Actual Out: 00000003
-Time: 40000 ns | Sel: 3 | Expected: 00000004 | Actual Out: 00000004
---- Test Complete ---
-$finish called at time : 50 ns : File "/home/omar/Documents/projects/riscv-cpu/tb/mux_tb.v" Line 51
