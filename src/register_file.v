@@ -9,18 +9,18 @@ module register_file (
     output wire [31:0] A_out,
     output wire[31:0] B_out
     );
-    
+
     reg [31:0] register_list[31:0];
     reg [5:0] i;
-    
+
     assign A_out = A1 == 5'd0 ? 32'd0 : register_list[A1];
     assign B_out = A2 == 5'd0 ? 32'd0 : register_list[A2];
-    
+
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             for (i = 0; i < 32; i = i + 1) begin
                 register_list[i] <= 32'd0;
-            end    
+            end
         end
         else begin
             if (write_enable && A3 != 5'b00000) begin

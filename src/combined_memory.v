@@ -11,7 +11,7 @@ module combined_memory #(
     localparam INTERNAL_ADDR_SIZE = $clog2(RAM_SIZE);
 
     // Byte addressable RAM
-    reg  [7:0] RAM [0:RAM-1];
+    reg  [7:0] RAM [0:RAM_SIZE-1];
 
     // Internal address signal
     wire [INTERNAL_ADDR_SIZE-1:0] addr_int;
@@ -43,7 +43,7 @@ module combined_memory #(
     // -------------------------------------------
     // Asynchronous Read Process
     // -------------------------------------------
-    assign data <= {
+    assign data = {
         RAM[addr_int + 3],
         RAM[addr_int + 2],
         RAM[addr_int + 1],
