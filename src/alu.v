@@ -4,6 +4,7 @@ module alu #(
     input wire [WORD_SIZE - 1:0] arg_a,
     input wire [WORD_SIZE - 1:0] arg_b,
     input wire [3:0] alu_sel,
+    output wire alu_zero_flag,
     output reg [WORD_SIZE - 1:0] alu_out
     );
 
@@ -17,6 +18,8 @@ module alu #(
     localparam SRA  = 4'h8;
     localparam SLT  = 4'h9;
     localparam SLTU = 4'hA;
+
+    assign alu_zero_flag = alu_out == 0 ? 1 : 0;
 
     always @(*) begin
         case (alu_sel)
