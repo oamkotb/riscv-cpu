@@ -8,7 +8,7 @@ module register #(
     output reg  [WORD_SIZE-1:0] data
 );
 
-always @(posedge clk, rst) begin
+always @(posedge clk, posedge rst) begin
     if (rst)
         data <= 0;
     else if (write_en)

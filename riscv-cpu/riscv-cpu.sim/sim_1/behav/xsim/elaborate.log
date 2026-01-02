@@ -7,4 +7,22 @@ Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-3091] actual bit length 3 differs from formal bit length 2 for port 'sel' [C:/NVDA_Project/riscv-cpu/src/datapath_main.v:196]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/NVDA_Project/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/NVDA_Project/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.register
+Compiling module xil_defaultlib.mux_2to1
+Compiling module xil_defaultlib.combined_memory_default
+Compiling module xil_defaultlib.register_file
+Compiling module xil_defaultlib.extend
+Compiling module xil_defaultlib.mux_3to1
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.output_buffer
+Compiling module xil_defaultlib.datapath_main
+Compiling module xil_defaultlib.controller_main
+Compiling module xil_defaultlib.riscv_cpu_main
+Compiling module xil_defaultlib.riscv_cpu_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscv_cpu_tb_behav
