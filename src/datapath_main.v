@@ -67,6 +67,7 @@ module datapath_main #(
 
     combined_memory #(.WORD_SIZE(WORD_SIZE), .RAM_SIZE(RAM_SIZE)) memory(
         .clk(clk),
+        .rst(rst),
         .write_en(mem_write),
         .addr(adr_out),
         .write_data(b_reg_out),

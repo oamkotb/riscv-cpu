@@ -1,0 +1,15 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/combined_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module combined_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/mux_2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_2to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_3to1
+ERROR: [VRFC 10-1280] procedural assignment to a non-register out is not permitted, left-hand side should be reg/integer/time/genvar [/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v:13]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register out is not permitted, left-hand side should be reg/integer/time/genvar [/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v:14]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register out is not permitted, left-hand side should be reg/integer/time/genvar [/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v:15]
+ERROR: [VRFC 10-1280] procedural assignment to a non-register out is not permitted, left-hand side should be reg/integer/time/genvar [/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v:16]
+ERROR: [VRFC 10-8530] module 'mux_3to1' is ignored due to previous errors [/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v:1]

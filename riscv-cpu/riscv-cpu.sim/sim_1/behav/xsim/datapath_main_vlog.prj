@@ -1,0 +1,17 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef" \
+"../../../../../src/alu.v" \
+"../../../../../src/combined_memory.v" \
+"../../../../../src/extend.v" \
+"../../../../../src/mux_2to1.v" \
+"../../../../../src/mux_3to1.v" \
+"../../../../../src/output_buffer.v" \
+"../../../../../src/register.v" \
+"../../../../../src/register_file.v" \
+"../../../../../src/datapath_main.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
