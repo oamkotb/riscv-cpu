@@ -9,7 +9,9 @@ module register #(
 );
 
 always @(posedge clk, rst) begin
-    if (write_en)
+    if (rst)
+        data <= 0;
+    else if (write_en)
         data <= write_data;
 end
 

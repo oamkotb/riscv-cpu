@@ -20,41 +20,43 @@ module combined_memory #(
     // -------------------------------------------
     // Synchronous Write Process
     // -------------------------------------------
-        always @(posedge clk or posedge rst) begin
-            if (rst) begin
-                // 1. Initialize all to zero (Optional, good for simulation)
-                for (i = 0; i < 1024; i = i + 1) begin
-                    RAM[i] = 8'h00;
-                end
+    integer i;
 
-                // 2. Load Hardcoded Instructions (Little Endian)
-
-                // addi x1, x0, 21 -> 0x01500093
-                RAM[0] = 8'h93;
-                RAM[1] = 8'h00;
-                RAM[2] = 8'h50;
-                RAM[3] = 8'h01;
-
-                // sw x1, 24(x0) -> 0x00102c23
-                RAM[4] = 8'h23;
-                RAM[5] = 8'h2c;
-                RAM[6] = 8'h10;
-                RAM[7] = 8'h00;
-
-                // lw x2, 24(x0) -> 0x01802103
-                RAM[8] = 8'h03;
-                RAM[9] = 8'h21;
-                RAM[10] = 8'h80;
-                RAM[11] = 8'h01;
-
-            end else if (write_en) begin
-                // Write operations (only happen if not in reset)
-                RAM[addr_int]     <= write_data[7:0];
-                RAM[addr_int + 1] <= write_data[15:8];
-                RAM[addr_int + 2] <= write_data[23:16];
-                RAM[addr_int + 3] <= write_data[31:24];
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            // 1. Initialize all to zero (Optional, good for simulation)
+            for (i = 0; i < 1024; i = i + 1) begin
+                RAM[i] = 8'h00;
             end
+
+            // 2. Load Hardcoded Instructions (Little Endian)
+
+            // addi x1, x0, 21 -> 0x01500093
+            RAM[0] = 8'h93;
+            RAM[1] = 8'h00;
+            RAM[2] = 8'h50;
+            RAM[3] = 8'h01;
+
+            // sw x1, 24(x0) -> 0x00102c23
+            RAM[4] = 8'h23;
+            RAM[5] = 8'h2c;
+            RAM[6] = 8'h10;
+            RAM[7] = 8'h00;
+
+            // lw x2, 24(x0) -> 0x01802103
+            RAM[8] = 8'h03;
+            RAM[9] = 8'h21;
+            RAM[10] = 8'h80;
+            RAM[11] = 8'h01;
+
+        end else if (write_en) begin
+            // Write operations (only happen if not in reset)
+            RAM[addr_int]     <= write_data[7:0];
+            RAM[addr_int + 1] <= write_data[15:8];
+            RAM[addr_int + 2] <= write_data[23:16];
+            RAM[addr_int + 3] <= write_data[31:24];
         end
+    end
 
     // -------------------------------------------
     // Asynchronous Read Process

@@ -15,8 +15,8 @@ module controller_main(
     output reg        output_en,
     output reg [2:0]  out_mux_sel,
     output reg [2:0]  imm_sel,
-    output reg [2:0]  alu_src_a_sel,
-    output reg [2:0]  alu_src_b_sel,
+    output reg [1:0]  alu_src_a_sel,
+    output reg [1:0]  alu_src_b_sel,
     output reg [3:0]  alu_ctrl
 );
     // INSTRUCTION TYPES
@@ -102,7 +102,7 @@ module controller_main(
     wire [9:0] funct = {funct3, funct7};
 
     // SEQUENTIAL LOGIC
-    always @(posedge clk or rst) begin
+    always @(posedge clk or posedge rst) begin
         if (rst)
             current_state <= RESET;
         else
@@ -140,7 +140,7 @@ module controller_main(
                 ir_write = 1'b1;
             end
             FETCH: begin
-
+                next_state = DECODE;
             end
             DECODE: begin
                 case(opcode)

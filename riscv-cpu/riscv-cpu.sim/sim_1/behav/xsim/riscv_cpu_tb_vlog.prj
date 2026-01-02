@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef" \
+verilog xil_defaultlib  --include "../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef" \
 "../../../../../src/alu.v" \
 "../../../../../src/combined_memory.v" \
 "../../../../../src/controller_main.v" \

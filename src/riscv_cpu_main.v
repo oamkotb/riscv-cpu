@@ -11,8 +11,8 @@ module riscv_cpu_main(
     wire        zero_flag;
     wire [2:0]  out_mux_sel;
     wire [2:0]  imm_sel;
-    wire [2:0]  alu_src_a_sel;
-    wire [2:0]  alu_src_b_sel;
+    wire [1:0]  alu_src_a_sel;
+    wire [1:0]  alu_src_b_sel;
     wire [3:0]  alu_ctrl;
     wire [6:0]  opcode;
     wire [2:0]  funct3;

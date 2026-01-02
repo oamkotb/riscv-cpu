@@ -5,7 +5,7 @@ module mux_3to1 #(
     input  wire [WORD_SIZE-1:0] a,
     input  wire [WORD_SIZE-1:0] b,
     input  wire [WORD_SIZE-1:0] c,
-    output wire [WORD_SIZE-1:0] out
+    output reg [WORD_SIZE-1:0] out
 );
 
     always @(*) begin

@@ -12,8 +12,8 @@ module datapath_main #(
     input  wire        output_en,
     input  wire [2:0]  out_mux_sel,
     input  wire [2:0]  imm_sel,
-    input  wire [2:0]  alu_src_a_sel,
-    input  wire [2:0]  alu_src_b_sel,
+    input  wire [1:0]  alu_src_a_sel,
+    input  wire [1:0]  alu_src_b_sel,
     input  wire [3:0]  alu_ctrl,
 
     output wire [6:0]  opcode,
@@ -59,8 +59,8 @@ module datapath_main #(
 
     mux_2to1 #(.WORD_SIZE(WORD_SIZE)) adr_mux(
         .sel(adr_src),
-        .in0(pc_out),
-        .in1(out_bus),
+        .a(pc_out),
+        .b(out_bus),
 
         .out(adr_out)
     );
