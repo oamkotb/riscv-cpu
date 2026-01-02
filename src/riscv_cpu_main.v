@@ -41,7 +41,7 @@ module riscv_cpu_main(
         .data_out(data_out)
     );
 
-    controller_main #(.WORD_SIZE(WORD_SIZE)) controller(
+    controller_main controller(
         .clk(clk),
         .rst(rst),
         .opcode(opcode),

@@ -7,17 +7,17 @@ module controller_main(
     input  wire        zero_flag,
     input  wire [31:0] data_out,
 
-    output wire        adr_src,
-    output wire        pc_write,
-    output wire        ir_write,
-    output wire        mem_write,
-    output wire        reg_write,
-    output wire        output_en,
-    output wire [2:0]  out_mux_sel,
-    output wire [2:0]  imm_sel,
-    output wire [2:0]  alu_src_a_sel,
-    output wire [2:0]  alu_src_b_sel,
-    output wire [3:0]  alu_ctrl
+    output reg        adr_src,
+    output reg        pc_write,
+    output reg        ir_write,
+    output reg        mem_write,
+    output reg        reg_write,
+    output reg        output_en,
+    output reg [2:0]  out_mux_sel,
+    output reg [2:0]  imm_sel,
+    output reg [2:0]  alu_src_a_sel,
+    output reg [2:0]  alu_src_b_sel,
+    output reg [3:0]  alu_ctrl
 );
     // INSTRUCTION TYPES
     localparam [6:0] R_TYPE      = 7'b0110011;
@@ -96,8 +96,8 @@ module controller_main(
     localparam BRANCH     = 4'd7;
     localparam HALT       = 4'd8;
 
-    wire [3:0] current_state;
-    wire [3:0] next_state;
+    reg [3:0] current_state;
+    reg [3:0] next_state;
 
     wire [9:0] funct = {funct3, funct7};
 

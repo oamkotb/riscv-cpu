@@ -2,13 +2,16 @@
 verilog xil_defaultlib  --include "../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef" \
 "../../../../../src/alu.v" \
 "../../../../../src/combined_memory.v" \
+"../../../../../src/controller_main.v" \
+"../../../../../src/datapath_main.v" \
 "../../../../../src/extend.v" \
 "../../../../../src/mux_2to1.v" \
 "../../../../../src/mux_3to1.v" \
 "../../../../../src/output_buffer.v" \
 "../../../../../src/register.v" \
 "../../../../../src/register_file.v" \
-"../../../../../src/datapath_main.v" \
+"../../../../../src/riscv_cpu_main.v" \
+"../../../../../tb/riscv_cpu_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

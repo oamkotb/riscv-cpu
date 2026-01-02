@@ -13,7 +13,7 @@ module riscv_cpu_tb();
 
     riscv_cpu_main cpu(
         .clk(clk),
-        .rst(rst),
+        .rst(rst)
     );
 
 endmodule
