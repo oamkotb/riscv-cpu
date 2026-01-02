@@ -148,6 +148,7 @@ module controller_main(
                         next_state    = WRITE_BACK;
                         alu_src_a_sel = 2'b10;
                         alu_src_b_sel = 2'b00;
+                        reg_write = 1'b1;
                         casex(funct)
                             ADD     : alu_ctrl = 4'h1;
                             SUB     : alu_ctrl = 4'h2;
@@ -167,6 +168,7 @@ module controller_main(
                         alu_src_a_sel = 2'b10;
                         alu_src_b_sel = 2'b01;
                         imm_sel       = 3'b001;
+                        reg_write     = 1'b1;
                         casex(funct)
                             ADDI    : alu_ctrl = 4'h1;
                             XORI    : alu_ctrl = 4'h3;
