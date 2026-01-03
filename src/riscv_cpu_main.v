@@ -9,6 +9,7 @@ module riscv_cpu_main(
     wire        reg_write;
     wire        output_en;
     wire        zero_flag;
+    wire        alu_lt;
     wire [2:0]  out_mux_sel;
     wire [2:0]  imm_sel;
     wire [1:0]  alu_src_a_sel;
@@ -38,6 +39,7 @@ module riscv_cpu_main(
         .funct3(funct3),
         .funct7(funct7),
         .zero_flag(zero_flag),
+        .alu_lt(alu_lt),
         .data_out(data_out)
     );
 
@@ -48,6 +50,7 @@ module riscv_cpu_main(
         .funct3(funct3),
         .funct7(funct7),
         .zero_flag(zero_flag),
+        .alu_lt(alu_lt),
         .data_out(data_out),
 
         .adr_src(adr_src),
