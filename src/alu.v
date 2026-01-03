@@ -4,7 +4,9 @@ module alu #(
     input wire [WORD_SIZE - 1:0] arg_a,
     input wire [WORD_SIZE - 1:0] arg_b,
     input wire [3:0] alu_sel,
+
     output wire alu_zero_flag,
+    output reg alu_lt,
     output reg [WORD_SIZE - 1:0] alu_out
     );
 
@@ -22,6 +24,7 @@ module alu #(
     assign alu_zero_flag = alu_out == 0 ? 1 : 0;
 
     always @(*) begin
+        alu_lt = 0;
         case (alu_sel)
               ADD: alu_out = arg_a + arg_b;
               SUB: alu_out = arg_a - arg_b;
@@ -31,8 +34,14 @@ module alu #(
               SLL: alu_out = arg_a << arg_b[4:0];
               SRL: alu_out = arg_a >> arg_b[4:0];
               SRA: alu_out = $signed(arg_a) >>> arg_b[4:0];
-              SLT: alu_out = ($signed(arg_a) < $signed(arg_b)) ? 1 : 0;
-              SLTU: alu_out = (arg_a < arg_b) ? 1 : 0;
+              SLT: begin
+                alu_out = ($signed(arg_a) < $signed(arg_b)) ? 1 : 0;
+                alu_lt = ($signed(arg_a) < $signed(arg_b)) ? 1 : 0;
+              end
+              SLTU: begin
+                alu_out = (arg_a < arg_b) ? 1 : 0;
+                alu_lt = (arg_a < arg_b) ? 1 : 0;
+              end
               default: alu_out = 0;
         endcase
     end

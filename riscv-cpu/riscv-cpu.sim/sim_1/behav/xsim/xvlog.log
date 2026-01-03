@@ -4,7 +4,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/combi
 INFO: [VRFC 10-311] analyzing module combined_memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/controller_main.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module controller_main
-WARNING: [VRFC 10-2096] empty statement in sequential block [C:/NVDA_Project/riscv-cpu/src/controller_main.v:203]
+WARNING: [VRFC 10-2096] empty statement in sequential block [C:/NVDA_Project/riscv-cpu/src/controller_main.v:253]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/datapath_main.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module datapath_main
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/extend.v" into library xil_defaultlib

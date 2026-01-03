@@ -31,9 +31,9 @@ module combined_memory #(
 
             // 2. Load Hardcoded Instructions (Little Endian)
 
-            // addi x1, x0, 21 -> 0x01500093
+            // addi x1, x1, 21 -> 0x01508093
             RAM[0] = 8'h93;
-            RAM[1] = 8'h00;
+            RAM[1] = 8'h80;
             RAM[2] = 8'h50;
             RAM[3] = 8'h01;
 
@@ -48,6 +48,18 @@ module combined_memory #(
             RAM[9] = 8'h21;
             RAM[10] = 8'h80;
             RAM[11] = 8'h01;
+
+            // blt x1, x0, 8 -> 0x0000c463
+            RAM[12] = 8'h63;
+            RAM[13] = 8'hc4;
+            RAM[14] = 8'h00;
+            RAM[15] = 8'h00;
+
+            // bge x1, x0, -16 -> 0xfe00d8e3
+            RAM[16] = 8'he3;
+            RAM[17] = 8'hd8;
+            RAM[18] = 8'h00;
+            RAM[19] = 8'hfe;
 
         end else if (write_en) begin
             // Write operations (only happen if not in reset)

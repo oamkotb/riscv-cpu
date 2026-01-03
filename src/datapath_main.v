@@ -20,6 +20,7 @@ module datapath_main #(
     output wire [2:0]  funct3,
     output wire [6:0]  funct7,
     output wire        zero_flag,
+    output wire        alu_lt,
     output wire [31:0] data_out
 );
     wire [WORD_SIZE-1:0] pc_out;
@@ -163,6 +164,7 @@ module datapath_main #(
         .alu_sel(alu_ctrl),
 
         .alu_zero_flag(zero_flag),
+        .alu_lt(alu_lt),
         .alu_out(alu_out)
     );
 

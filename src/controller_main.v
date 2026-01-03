@@ -5,6 +5,7 @@ module controller_main(
     input  wire [2:0]  funct3,
     input  wire [6:0]  funct7,
     input  wire        zero_flag,
+    input  wire        alu_lt,
     input  wire [31:0] data_out,
 
     output reg        adr_src,
@@ -132,6 +133,9 @@ module controller_main(
         // SET ALU BY DEFAULT TO ADDITION
         alu_ctrl = 4'h1;
 
+        // SET EXTEND TO OUTPUT 0 BY DEFAULT
+        imm_sel = 3'b000;
+
         // NEXT STATE LOGIC AND CURRENT CONTROL SIGNALS
         case(current_state)
             RESET: begin
@@ -141,6 +145,12 @@ module controller_main(
             end
             FETCH: begin
                 next_state = DECODE;
+                if (opcode == B_TYPE) begin
+                    alu_src_a_sel = 2'b00;
+                    alu_src_b_sel = 2'b01;
+                    imm_sel = 3'b100;
+                    alu_ctrl = 4'h1;
+                end
             end
             DECODE: begin
                 case(opcode)
@@ -197,6 +207,46 @@ module controller_main(
                         imm_sel       = 3'b011;
                         out_mux_sel   = 2'b00;
                     end
+
+                    B_TYPE: begin
+                        next_state    = WRITE_BACK;
+                        alu_src_a_sel = 2'b10;
+                        alu_src_b_sel = 2'b00;
+                        out_mux_sel   = 2'b00;
+                        casex(funct)
+                            BEQ  : begin
+                                alu_ctrl = 4'h2;
+                                if (zero_flag)
+                                    pc_write = 1'b1;
+                            end
+                            BNE  : begin
+                                alu_ctrl = 4'h2;
+                                if (~zero_flag)
+                                    pc_write = 1'b1;
+                            end
+                            BLT  : begin
+                                alu_ctrl = 4'h9;
+                                if (alu_lt)
+                                    pc_write = 1'b1;
+                            end
+                            BGE  : begin
+                                alu_ctrl = 4'h9;
+                                if (~alu_lt)
+                                    pc_write = 1'b1;
+                            end
+                            BLTU : begin
+                                alu_ctrl = 4'hA;
+                                if (alu_lt)
+                                    pc_write = 1'b1;
+                            end
+                            BGEU : begin
+                                alu_ctrl = 4'hA;
+                                if (~alu_lt)
+                                    pc_write = 1'b1;
+                            end
+                        endcase
+                    end
+
                     default: begin
                         next_state = RESET;
                     end
