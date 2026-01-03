@@ -62,9 +62,9 @@ module controller_main(
     localparam [9:0] LHU   = {3'h5, 7'hxx};
 
     // S_TYPE
-    localparam [9:0] SB    = {3'h0, 7'hxx};
-    localparam [9:0] SH    = {3'h1, 7'hxx};
-    localparam [9:0] SW    = {3'h2, 7'hxx};
+    // localparam [9:0] SB    = {3'h0, 7'hxx};
+    // localparam [9:0] SH    = {3'h1, 7'hxx};
+    // localparam [9:0] SW    = {3'h2, 7'hxx};
 
     // B_TYPE
     localparam [9:0] BEQ  = {3'h0, 7'hxx};
@@ -139,9 +139,11 @@ module controller_main(
                 pc_write = 1'b1;
                 ir_write = 1'b1;
             end
+
             FETCH: begin
                 next_state = DECODE;
             end
+
             DECODE: begin
                 case(opcode)
                     R_TYPE: begin
@@ -163,6 +165,7 @@ module controller_main(
                             default : alu_ctrl = 4'h1;
                         endcase
                     end
+
                     I_TYPE_ARTH: begin
                         next_state    = WRITE_BACK;
                         alu_src_a_sel = 2'b10;
@@ -182,6 +185,7 @@ module controller_main(
                             default : alu_ctrl = 4'h1;
                         endcase
                     end
+
                     I_TYPE_LOAD: begin
                         next_state    = MEM_ADR;
                         alu_src_a_sel = 2'b10;
@@ -197,10 +201,11 @@ module controller_main(
                         imm_sel       = 3'b011;
                         out_mux_sel   = 2'b00;
                     end
+
                     default: begin
                         next_state = RESET;
                     end
-                endcase;
+                endcase
             end
 
             MEM_ADR: begin
@@ -209,7 +214,6 @@ module controller_main(
                     adr_src     = 1'b1;
                     mem_write   = 1'b1;
                     out_mux_sel = 2'b00;
-                    // ADD an input into the INST/DATA MEMORY TO SELECT B, H (MAKE sure DEFAULT is W)
                 end
                 else begin
                     next_state  = MEM_READ;
@@ -224,17 +228,21 @@ module controller_main(
                 out_mux_sel = 2'b10;
                 reg_write = 1'b1;
             end
+
             WRITE_BACK: begin
                 next_state = FETCH;
                 pc_write = 1'b1;
                 ir_write = 1'b1;
             end
+
             JUMP: begin
 
             end
+
             BRANCH: begin
 
             end
+
             HALT: begin
 
             end

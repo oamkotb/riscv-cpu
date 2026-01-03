@@ -7,9 +7,17 @@ module combined_memory #(
     input  wire                 write_en,
     input  wire [WORD_SIZE-1:0] addr,
     input  wire [WORD_SIZE-1:0] write_data,
+    input  wire [2:0]           ctrl, // from funct3
+
     output wire [WORD_SIZE-1:0] data
 );
+    // CTRL Values
+    localparam [2:0] BYTE  = 2'h0; // funct3 000
+    localparam [2:0] HALF  = 3'h1; // funct3 001
+    localparam [2:0] WORD  = 3'h2; // funct3 010
+
     localparam INTERNAL_ADDR_SIZE = $clog2(RAM_SIZE);
+
     // Byte addressable RAM
     reg  [7:0] RAM [0:RAM_SIZE-1];
 
@@ -34,27 +42,46 @@ module combined_memory #(
             // addi x1, x0, 21 -> 0x01500093
             RAM[0] = 8'h93;
             RAM[1] = 8'h00;
-            RAM[2] = 8'h50;
-            RAM[3] = 8'h01;
+            RAM[2] = 8'h70;
+            RAM[3] = 8'h77;
 
-            // sw x1, 24(x0) -> 0x00102c23
+            // sb x1, 24(x0) -> 0x00100c23
             RAM[4] = 8'h23;
-            RAM[5] = 8'h2c;
+            RAM[5] = 8'h0c;
             RAM[6] = 8'h10;
             RAM[7] = 8'h00;
 
-            // lw x2, 24(x0) -> 0x01802103
+            // lb x2, 24(x0) -> 0x01800103
             RAM[8] = 8'h03;
-            RAM[9] = 8'h21;
+            RAM[9] = 8'h01;
             RAM[10] = 8'h80;
             RAM[11] = 8'h01;
 
         end else if (write_en) begin
-            // Write operations (only happen if not in reset)
-            RAM[addr_int]     <= write_data[7:0];
-            RAM[addr_int + 1] <= write_data[15:8];
-            RAM[addr_int + 2] <= write_data[23:16];
-            RAM[addr_int + 3] <= write_data[31:24];
+            case (ctrl)
+                BYTE: begin
+                    RAM[addr_int]     <= write_data[7:0];
+                end
+
+                HALF: begin
+                    RAM[addr_int]     <= write_data[7:0];
+                    RAM[addr_int + 1] <= write_data[15:8];
+                end
+
+                WORD: begin
+                    RAM[addr_int]     <= write_data[7:0];
+                    RAM[addr_int + 1] <= write_data[15:8];
+                    RAM[addr_int + 2] <= write_data[23:16];
+                    RAM[addr_int + 3] <= write_data[31:24];
+                end
+
+                default: begin
+                    RAM[addr_int]     <= write_data[7:0];
+                    RAM[addr_int + 1] <= write_data[15:8];
+                    RAM[addr_int + 2] <= write_data[23:16];
+                    RAM[addr_int + 3] <= write_data[31:24];
+                end
+            endcase
         end
     end
 

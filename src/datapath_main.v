@@ -71,6 +71,7 @@ module datapath_main #(
         .write_en(mem_write),
         .addr(adr_out),
         .write_data(b_reg_out),
+        .ctrl(funct3),
 
         .data(mem_data)
     );
@@ -104,7 +105,7 @@ module datapath_main #(
         .A2(inst[24:20]),
         .A3(inst[11:7]),
         .write_data(out_bus),
-        .write_enable(reg_write),
+        .write_en(reg_write),
 
         .A_out(a_data),
         .B_out(b_data)
