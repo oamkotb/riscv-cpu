@@ -8,10 +8,12 @@ module datapath_main #(
     input  wire        pc_write,
     input  wire        ir_write,
     input  wire        mem_write,
+    input  wire [1:0]  mem_ctrl,
     input  wire        reg_write,
     input  wire        output_en,
     input  wire [2:0]  out_mux_sel,
-    input  wire [2:0]  imm_sel,
+    input  wire [2:0]  imm_extend_sel,
+    input  wire [2:0]  load_extend_sel,
     input  wire [1:0]  alu_src_a_sel,
     input  wire [1:0]  alu_src_b_sel,
     input  wire [3:0]  alu_ctrl,
@@ -30,13 +32,14 @@ module datapath_main #(
     wire [WORD_SIZE-1:0] pc_reg_out;
 
     wire [WORD_SIZE-1:0] a_data, b_data;
-    wire [WORD_SIZE-1:0] extend_out;
+    wire [WORD_SIZE-1:0] imm_extend_out;
 
     wire [WORD_SIZE-1:0] a_reg_out, b_reg_out;
     wire [WORD_SIZE-1:0] alu_a, alu_b;
     wire [WORD_SIZE-1:0] alu_out;
     wire [WORD_SIZE-1:0] alu_reg_out;
 
+    wire [WORD_SIZE-1:0] load_extend_out;
     wire [WORD_SIZE-1:0] data_reg_out;
 
     wire [WORD_SIZE-1:0] out_bus;
@@ -72,7 +75,7 @@ module datapath_main #(
         .write_en(mem_write),
         .addr(adr_out),
         .write_data(b_reg_out),
-        .ctrl(funct3),
+        .ctrl(mem_ctrl),
 
         .data(mem_data)
     );
@@ -112,11 +115,11 @@ module datapath_main #(
         .B_out(b_data)
     );
 
-    extend extend(
+    imm_extend imm_extend(
         .inst(inst),
-        .extend_sel(imm_sel),
+        .extend_sel(imm_extend_sel),
 
-        .extend_out(extend_out)
+        .extend_out(imm_extend_out)
     );
 
     /*
@@ -153,7 +156,7 @@ module datapath_main #(
     mux_3to1 #(.WORD_SIZE(WORD_SIZE)) b_mux(
         .sel(alu_src_b_sel),
         .a(b_reg_out),
-        .b(extend_out),
+        .b(imm_extend_out),
         .c(32'd4),
 
         .out(alu_b)
@@ -182,11 +185,18 @@ module datapath_main #(
      * MEMORY STAGE:
      * Operand Registers, ALU Source MUXs, ALU
      */
+
+    load_extend #(.WORD_SIZE(WORD_SIZE)) load_extend(
+        .data(mem_data),
+        .extend_sel(load_extend_sel),
+        .extend_out(load_extend_out)
+    );
+
     register #(.WORD_SIZE(WORD_SIZE)) data_reg(
         .clk(clk),
         .write_en(1'b1),
         .rst(rst),
-        .write_data(mem_data),
+        .write_data(load_extend_out),
 
         .data(data_reg_out)
     );

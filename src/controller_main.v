@@ -12,10 +12,12 @@ module controller_main(
     output reg        pc_write,
     output reg        ir_write,
     output reg        mem_write,
+    output reg [1:0]  mem_ctrl,
     output reg        reg_write,
     output reg        output_en,
     output reg [2:0]  out_mux_sel,
-    output reg [2:0]  imm_sel,
+    output reg [2:0]  load_extend_sel,
+    output reg [2:0]  imm_extend_sel,
     output reg [1:0]  alu_src_a_sel,
     output reg [1:0]  alu_src_b_sel,
     output reg [3:0]  alu_ctrl
@@ -63,9 +65,9 @@ module controller_main(
     localparam [9:0] LHU   = {3'h5, 7'hxx};
 
     // S_TYPE
-    // localparam [9:0] SB    = {3'h0, 7'hxx};
-    // localparam [9:0] SH    = {3'h1, 7'hxx};
-    // localparam [9:0] SW    = {3'h2, 7'hxx};
+    localparam [9:0] SB    = {3'h0, 7'hxx};
+    localparam [9:0] SH    = {3'h1, 7'hxx};
+    localparam [9:0] SW    = {3'h2, 7'hxx};
 
     // B_TYPE
     localparam [9:0] BEQ  = {3'h0, 7'hxx};
@@ -134,7 +136,7 @@ module controller_main(
         alu_ctrl = 4'h1;
 
         // SET EXTEND TO OUTPUT 0 BY DEFAULT
-        imm_sel = 3'b000;
+        imm_extend_sel = 3'b000;
 
         // NEXT STATE LOGIC AND CURRENT CONTROL SIGNALS
         case(current_state)
@@ -149,7 +151,7 @@ module controller_main(
                 if (opcode == B_TYPE) begin
                     alu_src_a_sel = 2'b00;
                     alu_src_b_sel = 2'b01;
-                    imm_sel = 3'b100;
+                    imm_extend_sel = 3'b100;
                     alu_ctrl = 4'h1;
                 end
             end
@@ -160,7 +162,7 @@ module controller_main(
                         next_state    = WRITE_BACK;
                         alu_src_a_sel = 2'b10;
                         alu_src_b_sel = 2'b00;
-                        reg_write = 1'b1;
+                        reg_write     = 1'b1;
                         casex(funct)
                             ADD     : alu_ctrl = 4'h1;
                             SUB     : alu_ctrl = 4'h2;
@@ -177,11 +179,11 @@ module controller_main(
                     end
 
                     I_TYPE_ARTH: begin
-                        next_state    = WRITE_BACK;
-                        alu_src_a_sel = 2'b10;
-                        alu_src_b_sel = 2'b01;
-                        imm_sel       = 3'b001;
-                        reg_write     = 1'b1;
+                        next_state     = WRITE_BACK;
+                        alu_src_a_sel  = 2'b10;
+                        alu_src_b_sel  = 2'b01;
+                        imm_extend_sel = 3'b001;
+                        reg_write      = 1'b1;
                         casex(funct)
                             ADDI    : alu_ctrl = 4'h1;
                             XORI    : alu_ctrl = 4'h3;
@@ -197,19 +199,33 @@ module controller_main(
                     end
 
                     I_TYPE_LOAD: begin
-                        next_state    = MEM_ADR;
-                        alu_src_a_sel = 2'b10;
-                        alu_src_b_sel = 2'b01;
-                        imm_sel       = 3'b001;
-                        out_mux_sel   = 2'b00;
+                        next_state     = MEM_ADR;
+                        alu_src_a_sel  = 2'b10;
+                        alu_src_b_sel  = 2'b01;
+                        imm_extend_sel = 3'b001;
+                        out_mux_sel    = 2'b00;
+                        casex (funct)
+                            LB:      load_extend_sel = 3'd0;
+                            LH:      load_extend_sel = 3'd1;
+                            LW:      load_extend_sel = 3'd2;
+                            LBU:     load_extend_sel = 3'd3;
+                            LHU:     load_extend_sel = 3'd4;
+                            default: load_extend_sel = 3'd2;
+                        endcase
                     end
 
                     S_TYPE: begin
-                        next_state    = MEM_ADR;
-                        alu_src_a_sel = 2'b10;
-                        alu_src_b_sel = 2'b01;
-                        imm_sel       = 3'b011;
-                        out_mux_sel   = 2'b00;
+                        next_state     = MEM_ADR;
+                        alu_src_a_sel  = 2'b10;
+                        alu_src_b_sel  = 2'b01;
+                        imm_extend_sel = 3'b011;
+                        out_mux_sel    = 2'b00;
+                        casex (funct)
+                            SB:      mem_ctrl = 2'd0;
+                            SH:      mem_ctrl = 2'd1;
+                            SW:      mem_ctrl = 2'd2;
+                            default: mem_ctrl = 2'd2;
+                        endcase
                     end
 
                     B_TYPE: begin
@@ -268,7 +284,6 @@ module controller_main(
                     next_state  = MEM_READ;
                     adr_src     = 1'b1;
                     out_mux_sel = 2'b00;
-                    // ADD an input into the INST/DATA MEMORY TO SELECT B, H, UB, UH (MAKE sure DEFAULT is W)
                 end
             end
 

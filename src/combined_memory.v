@@ -7,14 +7,14 @@ module combined_memory #(
     input  wire                 write_en,
     input  wire [WORD_SIZE-1:0] addr,
     input  wire [WORD_SIZE-1:0] write_data,
-    input  wire [2:0]           ctrl, // from funct3
+    input  wire [1:0]           ctrl, // from funct3
 
     output wire [WORD_SIZE-1:0] data
 );
     // CTRL Values
-    localparam [2:0] BYTE  = 2'h0; // funct3 000
-    localparam [2:0] HALF  = 3'h1; // funct3 001
-    localparam [2:0] WORD  = 3'h2; // funct3 010
+    localparam [1:0] BYTE  = 2'h0;
+    localparam [1:0] HALF  = 3'h1;
+    localparam [1:0] WORD  = 3'h2;
 
     localparam INTERNAL_ADDR_SIZE = $clog2(RAM_SIZE);
 
@@ -41,33 +41,34 @@ module combined_memory #(
 
             // addi x1, x1, 21 -> 0x01508093
             RAM[0] = 8'h93;
-            RAM[1] = 8'h00;
-            RAM[2] = 8'h70;
-            RAM[3] = 8'h77;
+            RAM[1] = 8'h80;
+            RAM[2] = 8'h50;
+            RAM[3] = 8'h01;
 
-            // sb x1, 24(x0) -> 0x00100c23
-            RAM[4] = 8'h23;
-            RAM[5] = 8'h0c;
+            // sll x1, x1, x1 -> 0x001090b3
+            RAM[4] = 8'hb3;
+            RAM[5] = 8'h90;
             RAM[6] = 8'h10;
             RAM[7] = 8'h00;
 
-            // lb x2, 24(x0) -> 0x01800103
-            RAM[8] = 8'h03;
-            RAM[9] = 8'h01;
-            RAM[10] = 8'h80;
-            RAM[11] = 8'h01;
+            // sw x1, 24(x0) -> 0x00102c23
+            RAM[8] = 8'h23;
+            RAM[9] = 8'h2c;
+            RAM[10] = 8'h10;
+            RAM[11] = 8'h00;
+
+            // lb x2, 26(x0) -> 0x01802103
+            RAM[12] = 8'h03;
+            RAM[13] = 8'h01;
+            RAM[14] = 8'ha0;
+            RAM[15] = 8'h01;
 
             // blt x1, x0, 8 -> 0x0000c463
-            RAM[12] = 8'h63;
-            RAM[13] = 8'hc4;
-            RAM[14] = 8'h00;
-            RAM[15] = 8'h00;
-
-            // bge x1, x0, -16 -> 0xfe00d8e3
-            RAM[16] = 8'he3;
-            RAM[17] = 8'hd8;
+            RAM[16] = 8'h63;
+            RAM[17] = 8'hc4;
             RAM[18] = 8'h00;
-            RAM[19] = 8'hfe;
+            RAM[19] = 8'h00;
+
 
         end else if (write_en) begin
             case (ctrl)
