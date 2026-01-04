@@ -264,17 +264,22 @@ module controller_main(
                                 if (~alu_lt)
                                     pc_write = 1'b1;
                             end
+                            default : begin
+                                alu_ctrl = 4'h2;
+                                if (zero_flag)
+                                    pc_write = 1'b1;
+                            end
                         endcase
                     end
 
                     J_TYPE: begin
-                        next_state    = JUMP;
-                        reg_write     = 1'b1;
-                        alu_ctrl      = 4'h1;
-                        alu_src_a_sel = 2'b00;
-                        alu_src_b_sel = 2'b10;
-                        out_mux_sel   = 2'b01;
-                        imm_sel       = 3'b110;
+                        next_state     = JUMP;
+                        reg_write      = 1'b1;
+                        alu_ctrl       = 4'h1;
+                        alu_src_a_sel  = 2'b00;
+                        alu_src_b_sel  = 2'b10;
+                        out_mux_sel    = 2'b01;
+                        imm_extend_sel = 3'b110;
                     end
 
                     default: begin
@@ -311,11 +316,11 @@ module controller_main(
 
             JUMP: begin
                 next_state = WRITE_BACK;
-                imm_sel       = 3'b110;
-                alu_ctrl      = 4'h1;
-                alu_src_b_sel = 2'b01;
-                out_mux_sel   = 2'b01;
-                pc_write      = 1'b1;
+                imm_extend_sel = 3'b110;
+                alu_ctrl       = 4'h1;
+                alu_src_b_sel  = 2'b01;
+                out_mux_sel    = 2'b01;
+                pc_write       = 1'b1;
                 casex(opcode)
                     J_TYPE      : alu_src_a_sel = 2'b00;
                     I_TYPE_JUMP : alu_src_a_sel = 2'b10;
