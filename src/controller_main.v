@@ -251,6 +251,16 @@ module controller_main(
                         endcase
                     end
 
+                    J_TYPE: begin
+                        next_state    = JUMP;
+                        reg_write     = 1'b1;
+                        alu_ctrl      = 4'h1;
+                        alu_src_a_sel = 2'b00;
+                        alu_src_b_sel = 2'b10;
+                        out_mux_sel   = 2'b01;
+                        imm_sel       = 3'b110;
+                    end
+
                     default: begin
                         next_state = RESET;
                     end
@@ -285,7 +295,17 @@ module controller_main(
             end
 
             JUMP: begin
-
+                next_state = WRITE_BACK;
+                imm_sel       = 3'b110;
+                alu_ctrl      = 4'h1;
+                alu_src_b_sel = 2'b01;
+                out_mux_sel   = 2'b01;
+                pc_write      = 1'b1;
+                casex(opcode)
+                    J_TYPE      : alu_src_a_sel = 2'b00;
+                    I_TYPE_JUMP : alu_src_a_sel = 2'b10;
+                    default     : alu_src_a_sel = 2'b00;
+                endcase
             end
 
             BRANCH: begin
