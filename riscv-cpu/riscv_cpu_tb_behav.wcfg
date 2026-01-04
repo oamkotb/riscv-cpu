@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="811.001 ns"></ZoomEndTime>
-      <Cursor1Time time="80.000 ns"></Cursor1Time>
+      <ZoomEndTime time="276.801 ns"></ZoomEndTime>
+      <Cursor1Time time="622.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="138"></NameColumnWidth>
-      <ValueColumnWidth column_width="63"></ValueColumnWidth>
+      <NameColumnWidth column_width="137"></NameColumnWidth>
+      <ValueColumnWidth column_width="60"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
+   <WVObjectSize size="5" />
    <wvobject type="logic" fp_name="/riscv_cpu_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,6 +27,10 @@
    <wvobject type="logic" fp_name="/riscv_cpu_tb/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/riscv_cpu_tb/cpu/datapath/pc_out">
+      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/riscv_cpu_tb/cpu/datapath/memory/RAM">
       <obj_property name="ElementShortName">RAM[0:1023][7:0]</obj_property>
@@ -36,5 +40,6 @@
       <obj_property name="ElementShortName">register_list[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">register_list[31:0][31:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <obj_property name="Reversed">false</obj_property>
    </wvobject>
 </wave_config>

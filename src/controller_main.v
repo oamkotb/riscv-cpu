@@ -32,7 +32,7 @@ module controller_main(
     localparam [6:0] J_TYPE      = 7'b1101111;
     localparam [6:0] U_TYPE_LOAD = 7'b0110111; // LUI
     localparam [6:0] U_TYPE_PC   = 7'b0010111; // AUIPC
-    localparam [6:0] H_TYPE      = 7'b1111111;
+    localparam [6:0] H_TYPE      = 7'b0111111;
 
     // R_TYPE
     localparam [9:0] ADD   = {3'h0, 7'h00}; // {funct3, funct7}
@@ -96,7 +96,6 @@ module controller_main(
     localparam MEM_READ   = 4'd4;
     localparam JUMP       = 4'd5;
     localparam WRITE_BACK = 4'd6;
-    localparam BRANCH     = 4'd7;
     localparam HALT       = 4'd8;
 
     reg [3:0] current_state;
@@ -214,6 +213,16 @@ module controller_main(
                         endcase
                     end
 
+                    I_TYPE_JUMP: begin
+                        next_state     = JUMP;
+                        reg_write      = 1'b1;
+                        alu_ctrl       = 4'h1;
+                        alu_src_a_sel  = 2'b00;
+                        alu_src_b_sel  = 2'b10;
+                        out_mux_sel    = 2'b01;
+                        imm_extend_sel = 3'b110;
+                    end
+
                     S_TYPE: begin
                         next_state     = MEM_ADR;
                         alu_src_a_sel  = 2'b10;
@@ -282,6 +291,27 @@ module controller_main(
                         imm_extend_sel = 3'b110;
                     end
 
+                    U_TYPE_LOAD: begin
+                        next_state     = WRITE_BACK;
+                        alu_ctrl       = 4'hB;
+                        alu_src_b_sel  = 2'b01;
+                        imm_extend_sel = 3'b101;
+                        reg_write      = 1'b1;
+                        out_mux_sel    = 2'b01;
+                    end
+
+                    U_TYPE_PC: begin
+                        next_state     = WRITE_BACK;
+                        alu_ctrl       = 4'h1;
+                        alu_src_a_sel  = 2'b00;
+                        alu_src_b_sel  = 2'b01;
+                        imm_extend_sel = 3'b101;
+                        reg_write      = 1'b1;
+                        out_mux_sel    = 2'b01;
+                    end
+
+                    H_TYPE: next_state = HALT;
+
                     default: begin
                         next_state = RESET;
                     end
@@ -328,17 +358,12 @@ module controller_main(
                 endcase
             end
 
-            BRANCH: begin
-
-            end
-
-            HALT: begin
-
-            end
+            HALT: next_state = HALT;
 
             default: begin
                 next_state = current_state;
             end
+
         endcase
     end
 endmodule

@@ -10,16 +10,17 @@ module alu #(
     output reg [WORD_SIZE - 1:0] alu_out
     );
 
-    localparam ADD  = 4'h1;
-    localparam SUB  = 4'h2;
-    localparam XOR  = 4'h3;
-    localparam OR   = 4'h4;
-    localparam AND  = 4'h5;
-    localparam SLL  = 4'h6;
-    localparam SRL  = 4'h7;
-    localparam SRA  = 4'h8;
-    localparam SLT  = 4'h9;
-    localparam SLTU = 4'hA;
+    localparam ADD   = 4'h1;
+    localparam SUB   = 4'h2;
+    localparam XOR   = 4'h3;
+    localparam OR    = 4'h4;
+    localparam AND   = 4'h5;
+    localparam SLL   = 4'h6;
+    localparam SRL   = 4'h7;
+    localparam SRA   = 4'h8;
+    localparam SLT   = 4'h9;
+    localparam SLTU  = 4'hA;
+    localparam LUI   = 4'hB;
 
     assign alu_zero_flag = alu_out == 0 ? 1 : 0;
 
@@ -42,6 +43,7 @@ module alu #(
                 alu_out = (arg_a < arg_b) ? 1 : 0;
                 alu_lt = (arg_a < arg_b) ? 1 : 0;
               end
+              LUI: alu_out = arg_b;
               default: alu_out = 0;
         endcase
     end

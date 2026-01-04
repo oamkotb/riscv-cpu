@@ -75,11 +75,17 @@ module combined_memory #(
             RAM[22] = 8'hC0;
             RAM[23] = 8'h02;
 
+            // auipc x10, 385279 -> 0x5e0ff517
+            RAM[24] = 8'h17;
+            RAM[25] = 8'hf5;
+            RAM[26] = 8'h0f;
+            RAM[27] = 8'h5e;
+
             // hlt -> 0x3F3F3F3F
-            RAM[24] = 8'h3F;
-            RAM[25] = 8'h3F;
-            RAM[26] = 8'h3F;
-            RAM[27] = 8'h3F;
+            RAM[28] = 8'h3F;
+            RAM[29] = 8'h3F;
+            RAM[30] = 8'h3F;
+            RAM[31] = 8'h3F;
 
             // --- BIT COUNTER SUBROUTINE (starts at address 44) ---
 
