@@ -4,6 +4,8 @@ verilog xil_defaultlib  --include "../../../../../../../../../../opt/Xilinx/2025
 "../../../../../src/combined_memory.v" \
 "../../../../../src/controller_main.v" \
 "../../../../../src/datapath_main.v" \
+"../../../../../src/imm_extend.v" \
+"../../../../../src/load_extend.v" \
 "../../../../../src/mux_2to1.v" \
 "../../../../../src/mux_3to1.v" \
 "../../../../../src/output_buffer.v" \

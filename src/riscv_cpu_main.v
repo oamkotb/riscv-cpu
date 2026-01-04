@@ -6,12 +6,14 @@ module riscv_cpu_main(
     wire        pc_write;
     wire        ir_write;
     wire        mem_write;
+    wire [1:0]  mem_ctrl;
+    wire [2:0]  load_extend_sel;
     wire        reg_write;
     wire        output_en;
     wire        zero_flag;
     wire        alu_lt;
     wire [2:0]  out_mux_sel;
-    wire [2:0]  imm_sel;
+    wire [2:0]  imm_extend_sel;
     wire [1:0]  alu_src_a_sel;
     wire [1:0]  alu_src_b_sel;
     wire [3:0]  alu_ctrl;
@@ -27,10 +29,12 @@ module riscv_cpu_main(
         .pc_write(pc_write),
         .ir_write(ir_write),
         .mem_write(mem_write),
+        .mem_ctrl(mem_ctrl),
+        .load_extend_sel(load_extend_sel),
         .reg_write(reg_write),
         .output_en(output_en),
         .out_mux_sel(out_mux_sel),
-        .imm_sel(imm_sel),
+        .imm_extend_sel(imm_extend_sel),
         .alu_src_a_sel(alu_src_a_sel),
         .alu_src_b_sel(alu_src_b_sel),
         .alu_ctrl(alu_ctrl),
@@ -57,10 +61,12 @@ module riscv_cpu_main(
         .pc_write(pc_write),
         .ir_write(ir_write),
         .mem_write(mem_write),
+        .mem_ctrl(mem_ctrl),
+        .load_extend_sel(load_extend_sel),
         .reg_write(reg_write),
         .output_en(output_en),
         .out_mux_sel(out_mux_sel),
-        .imm_sel(imm_sel),
+        .imm_extend_sel(imm_extend_sel),
         .alu_src_a_sel(alu_src_a_sel),
         .alu_src_b_sel(alu_src_b_sel),
         .alu_ctrl(alu_ctrl)

@@ -7,14 +7,14 @@ module combined_memory #(
     input  wire                 write_en,
     input  wire [WORD_SIZE-1:0] addr,
     input  wire [WORD_SIZE-1:0] write_data,
-    input  wire [2:0]           ctrl, // from funct3
+    input  wire [1:0]           ctrl, // from funct3
 
     output wire [WORD_SIZE-1:0] data
 );
     // CTRL Values
-    localparam [2:0] BYTE  = 2'h0; // funct3 000
-    localparam [2:0] HALF  = 3'h1; // funct3 001
-    localparam [2:0] WORD  = 3'h2; // funct3 010
+    localparam [1:0] BYTE  = 2'h0;
+    localparam [1:0] HALF  = 3'h1;
+    localparam [1:0] WORD  = 3'h2;
 
     localparam INTERNAL_ADDR_SIZE = $clog2(RAM_SIZE);
 
