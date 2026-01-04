@@ -1,17 +1,16 @@
 0.7
 2020.2
-May 22 2025
-00:13:55
-C:/NVDA_Project/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v,1767383389,verilog,,,,glbl,,,,,,,,
-C:/NVDA_Project/riscv-cpu/src/alu.v,1767461572,verilog,,C:/NVDA_Project/riscv-cpu/src/combined_memory.v,,alu,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/combined_memory.v,1767466051,verilog,,C:/NVDA_Project/riscv-cpu/src/controller_main.v,,combined_memory,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/controller_main.v,1767462005,verilog,,C:/NVDA_Project/riscv-cpu/src/datapath_main.v,,controller_main,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/datapath_main.v,1767388800,verilog,,C:/NVDA_Project/riscv-cpu/src/extend.v,,datapath_main,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/extend.v,1767210264,verilog,,C:/NVDA_Project/riscv-cpu/src/mux_2to1.v,,extend,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/mux_2to1.v,1767199262,verilog,,C:/NVDA_Project/riscv-cpu/src/mux_3to1.v,,mux_2to1,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/mux_3to1.v,1767388407,verilog,,C:/NVDA_Project/riscv-cpu/src/output_buffer.v,,mux_3to1,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/output_buffer.v,1767210264,verilog,,C:/NVDA_Project/riscv-cpu/src/register.v,,output_buffer,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/register.v,1767389045,verilog,,C:/NVDA_Project/riscv-cpu/src/register_file.v,,register,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/register_file.v,1767210264,verilog,,C:/NVDA_Project/riscv-cpu/src/riscv_cpu_main.v,,register_file,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/src/riscv_cpu_main.v,1767384120,verilog,,C:/NVDA_Project/riscv-cpu/tb/riscv_cpu_tb.v,,riscv_cpu_main,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
-C:/NVDA_Project/riscv-cpu/tb/riscv_cpu_tb.v,1767383390,verilog,,,,riscv_cpu_tb,,,../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef,,,,,
+May 21 2025
+22:59:56
+/home/omar/Documents/projects/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v,1741209010,verilog,,,,glbl,,,,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/alu.v,1767483425,verilog,,/home/omar/Documents/projects/riscv-cpu/src/combined_memory.v,,alu,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/combined_memory.v,1767483445,verilog,,/home/omar/Documents/projects/riscv-cpu/src/controller_main.v,,combined_memory,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/controller_main.v,1767483593,verilog,,/home/omar/Documents/projects/riscv-cpu/src/datapath_main.v,,controller_main,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/datapath_main.v,1767483425,verilog,,/home/omar/Documents/projects/riscv-cpu/src/mux_2to1.v,,datapath_main,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/mux_2to1.v,1767199326,verilog,,/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v,,mux_2to1,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v,1767390483,verilog,,/home/omar/Documents/projects/riscv-cpu/src/output_buffer.v,,mux_3to1,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/output_buffer.v,1767200516,verilog,,/home/omar/Documents/projects/riscv-cpu/src/register.v,,output_buffer,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/register.v,1767390483,verilog,,/home/omar/Documents/projects/riscv-cpu/src/register_file.v,,register,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/register_file.v,1767456381,verilog,,/home/omar/Documents/projects/riscv-cpu/src/riscv_cpu_main.v,,register_file,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/src/riscv_cpu_main.v,1767483425,verilog,,/home/omar/Documents/projects/riscv-cpu/tb/riscv_cpu_tb.v,,riscv_cpu_main,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,
+/home/omar/Documents/projects/riscv-cpu/tb/riscv_cpu_tb.v,1767382891,verilog,,,,riscv_cpu_tb,,,../../../../../../../../../../opt/Xilinx/2025.1/data/rsb/busdef,,,,,

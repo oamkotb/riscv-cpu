@@ -1,25 +1,24 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/alu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module alu
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/combined_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/combined_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module combined_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/controller_main.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/controller_main.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module controller_main
-WARNING: [VRFC 10-2096] empty statement in sequential block [C:/NVDA_Project/riscv-cpu/src/controller_main.v:253]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/datapath_main.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/datapath_main.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module datapath_main
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/extend.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module extend
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/mux_2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/mux_2to1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mux_2to1
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/mux_3to1.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/mux_3to1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mux_3to1
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/output_buffer.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/output_buffer.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module output_buffer
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/register.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/register.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module register
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/register_file.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module register_file
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/src/riscv_cpu_main.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/src/riscv_cpu_main.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscv_cpu_main
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/NVDA_Project/riscv-cpu/tb/riscv_cpu_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/tb/riscv_cpu_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscv_cpu_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/omar/Documents/projects/riscv-cpu/riscv-cpu/riscv-cpu.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
